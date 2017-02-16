@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Link to gruvbox.vim
+Type=Link
+URL=https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim
+Icon=text-html
