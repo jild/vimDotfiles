@@ -1,1 +1,1 @@
-# vimDotfiles
+nvim dotfiles
