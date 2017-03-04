@@ -380,6 +380,8 @@ Plugin 'tpope/vim-sleuth' " set shiftwidth and expandtab automatically
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'Valloric/YouCompleteMe' " autocompletition
 
+Plugin 'tpope/vim-fugitive' " git functionality
+Plugin 'vim-scripts/SearchComplete.git' " autocomplete search / ? with tab
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'terryma/vim-expand-region' " use for a keybinding see above
 let g:ycm_confirm_extra_conf = 0
@@ -761,4 +763,5 @@ nnoremap <C-n> :bprev<cr>
 nnoremap <C-m> :bnext<cr>
 
 
+"inotify test
 
