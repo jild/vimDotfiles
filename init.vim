@@ -25,7 +25,6 @@ set noswapfile " disable swap file
 " folds
 set foldlevelstart=1 " auto folds at level 1, "so i dunno forget that folds exist"
 
-
 "" Keep the horizontal cursor position when moving vertically.
 set nostartofline
 set showmatch "" Show matching braces.
@@ -485,6 +484,8 @@ Plugin 'junegunn/fzf'
 Plugin 'xolox/vim-session.git'
 Plugin 'xolox/vim-misc.git' "needed for above
 :let g:session_autoload = 'no'
+:let g:session_autosave = 'no'
+
 " use DeleteSession to delete your session
 " RestartSession may come in handy too
 
@@ -682,7 +683,18 @@ nnoremap <C-c> <S-v>"+y
 
 " want to sync vim with system clipboard
 " this makes every yank appear in system clipboard
-set clipboard=unnamedplus " for windows it is unamed
+" set clipboard=unnamedplus " for windows it is unamed
+" neovim workaround:
+function! ClipboardYank()
+  call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 "_____________________________________________________________________________
 " compatibility with normal programs
