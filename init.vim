@@ -411,7 +411,8 @@ let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 Plugin 'vimwiki/vimwiki.git' " default wiki page with <leader><leader>w
 Plugin 'rafaqz/citation.vim.git'
 let g:citation_vim_mode="zotero"
-let g:citation_vim_zotero_path="~/.zotero/zotero/jvkcoyob.default/zotero"
+let g:citation_vim_zotero_path="/home/mm/.mozilla/firefox/manjaro.default/zotero"
+"~/.zotero/zotero/jvkcoyob.default/zotero
 let g:citation_vim_cache_path='~/.config/nvim/cache/citation_vim'
 let g:citation_vim_outer_prefix="["
 let g:citation_vim_inner_prefix="@"
@@ -452,7 +453,7 @@ Plugin 'blueyed/vim-diminactive.git' " dim inactive splits
 
 " Plugin 'KevinGoodsell/vim-csexact.git'
 " needed to combine ycm and ultisnips
-Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab' "needed?
 
 " " make YCM compatible with UltiSnips (using supertab)
 " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -470,15 +471,13 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>" " ctrl-space seems to workt too! way cooler
+let g:UltiSnipsExpandTrigger = "<ctrl-space>" " ctrl-space seems to workt too! way cooler
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 Plugin 'freitass/todo.txt-vim.git'
 " fzf (fuzzy)
-Plugin 'junegunn/fzf'
-
-"Plugin 'https://bitbucket.org/ns9tks/vim-autocomplpop/'
+" Plugin 'junegunn/fzf'
 
 " mksession on steroids
 Plugin 'xolox/vim-session.git'
@@ -634,6 +633,7 @@ vnoremap <Right> >gv
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :bd<CR>
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <Leader><leader>q :qa<CR>
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>u :Unite<CR>
@@ -658,7 +658,7 @@ nnoremap <leader><leader>q gqip
 
 "" Make it easy to update/reload _vimrc.
 nnoremap <leader>s :source $HOME/.config/nvim/init.vim
-nnoremap <leader>v :vsp $HOME/.config/nvim/init.vim 
+nnoremap <leader>v :sp $HOME/.config/nvim/init.vim 
 "nmap ,u :vsp $HOME/.vimrc/Bundle/vim-snippets/UltiSnips/java.snippets
 
 "Eclim shortcuts
@@ -673,28 +673,17 @@ nnoremap <Leader><Leader>cn :JavaCorrect
 inoremap <C-v> <C-r>0
 " equivalent in visual mode: paste from non-delete buffer
 vnoremap <C-v> "0p
-"paste from clipboard in command mode
-  " nnoremap <leader>p o<C-r>+<esc>
-" yank a line to clipboard when not selecting anything
 nnoremap <C-c> <S-v>"+y
 " copy/paste to *system clipboard* in visual mode
-  " vnoremap <C-c> "+y
-  " vnoremap <C-S-v> "+p
+" vnoremap <C-c> "+y
+" vnoremap <C-S-v> "+p
+"paste from clipboard in command mode
+" nnoremap <leader>p o<C-r>+<esc>
+" yank a line to clipboard when not selecting anything
 
 " want to sync vim with system clipboard
 " this makes every yank appear in system clipboard
-" set clipboard=unnamedplus " for windows it is unamed
-" neovim workaround:
-function! ClipboardYank()
-  call system('xclip -i -selection clipboard', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('xclip -o -selection clipboard')
-endfunction
-
-vnoremap <silent> y y:call ClipboardYank()<cr>
-vnoremap <silent> d d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
+set clipboard=unnamedplus " for windows it is unamed
 
 "_____________________________________________________________________________
 " compatibility with normal programs
@@ -739,10 +728,6 @@ noremap! <A-l> <Right>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-
-
-"nmap <C-M> :tabnext<CR>
-"nmap <C-N> :tabprev<CR>
 
 "" Next / previous error with Tab / Shift+Tab.
 "map <silent> <Tab> :cn<CR>
