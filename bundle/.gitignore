@@ -1,2 +1,6 @@
-!Vundle.vim
+# ignore everything
+*
+
+# exclude from ignore
+!bundle/Vundle.vim
 
