@@ -27,22 +27,6 @@ Plugin 'ctrlpvim/ctrlp.vim'         " search files, tags
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'      " without the mixed you start in files mode
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
-"if executable('ag')
-"""" Use Ag over Grep
-"""set grepprg=ag\ --nogroup\ --nocolor
-
-"""" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"""let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"endif
-"Plugin 'zefei/vim-wintabs'
-"map <C-n> <Plug>(wintabs_previous)
-"map <C-m> <Plug>(wintabs_next)
-"map <C-T>c <Plug>(wintabs_close)
-"map <C-T>o <Plug>(wintabs_only)
-"map <C-W>c <Plug>(wintabs_close_window)
-"map <C-W>o <Plug>(wintabs_only_window)
-"command! Tabc WintabsCloseVimtab
-"command! Tabo WintabsOnlyVimtab
 " Plugin 'easymotion/vim-easymotion'  " new motion with <leader><leader>w
 Plugin 'vimwiki/vimwiki.git' " default wiki page with <leader><leader>w
 Plugin 'rafaqz/citation.vim.git'
@@ -91,16 +75,6 @@ Plugin 'blueyed/vim-diminactive.git' " dim inactive splits
 " needed to combine ycm and ultisnips
 Plugin 'ervandew/supertab' "needed?
 
-" " make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
- 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -125,6 +99,8 @@ Plugin 'xolox/vim-misc.git' "needed for above
 " RestartSession may come in handy too
 
 Plugin 'scrooloose/syntastic.git' " syntax checking hacks, don't see a big difference to
+Plugin 'https://github.com/neomake/neomake.git' " linter
+autocmd! BufWritePost * Neomake " execute linter on every write
 
 Plugin 'godlygeek/tabular.git' " make things line up
 

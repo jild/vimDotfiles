@@ -23,27 +23,6 @@ imap <a-char-228> [
 inoremap jj <Esc>
 "vmap jk <Esc>
 
-" make text move around in normal, visual mode
-" left/right
-nnoremap <Left> <<
-nnoremap <Right> >>
-vnoremap <Left> <gv " gv selects last selection or sth.
-vnoremap <Right> >gv
-" inoremap <Left> <Esc><<i
-" inoremap <Right> <Esc>>>i
-" " up/down - doesnt work
-" nnoremap <Up> [e
-" nnoremap <Down> ]e
-" vnoremap <Up> [egv
-" vnoremap <Down> ]egv
-" " up/down alternative
-" nnoremap <Down> :m .+1<CR>==
-" nnoremap <Up> :m .-2<CR>==
-" inoremap <Down> <Esc>:m .+1<CR>==gi
-" inoremap <Up> <Esc>:m .-2<CR>==gi
-" vnoremap <Down> :m '>+1<CR>gv=gv
-" vnoremap <Up> :m '<-2<CR>gv=gv
-
 "nnoremap <s-enter> :echo 'senter'<cr>
 "nnoremap <enter> :echo 'enter'<cr>
 "nnoremap <c-s-enter> :echo 'csenter'<cr>
@@ -75,7 +54,7 @@ nnoremap <leader><leader>q gqip
 
 "" Make it easy to update/reload _vimrc.
 nnoremap <leader>s :source $HOME/.config/nvim/init.vim
-nnoremap <leader>v :sp $HOME/.config/nvim/init.vim 
+nnoremap <leader>v :e $HOME/.config/nvim/init.vim 
 "nmap ,u :vsp $HOME/.vimrc/Bundle/vim-snippets/UltiSnips/java.snippets
 
 "Eclim shortcuts

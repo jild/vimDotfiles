@@ -4,22 +4,16 @@ let mapleader=" "  "set Leader key to space
 " cnoremap w!! w !sudo tee % >/dev/null " open a file with super user rights
 
 set cursorline
-
 set scrolloff=999  " keep cursur centered
-
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start
-
 set textwidth=80
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-
 set number "relativenumber "pendant: set number
-
 set autochdir " Automatically change to current file dir
 set termguicolors " dunno, nvim truecolor feature
-
 set noswapfile " disable swap file
 set nobackup 
 
