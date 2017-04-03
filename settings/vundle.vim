@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'   " Plugin manager
 Plugin 'tpope/vim-sleuth' " set shiftwidth and expandtab automatically
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'Valloric/YouCompleteMe' " autocompletition
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 Plugin 'tpope/vim-fugitive' " git functionality
 Plugin 'vim-scripts/SearchComplete.git' " autocomplete search / ? with tab

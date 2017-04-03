@@ -1,8 +1,6 @@
 " General
 let mapleader=" "  "set Leader key to space
 
-" cnoremap w!! w !sudo tee % >/dev/null " open a file with super user rights
-
 set cursorline
 set scrolloff=999  " keep cursur centered
 set backspace=2 " make backspace work like most other apps
@@ -100,14 +98,8 @@ set t_Co=256
 colorscheme Tomorrow
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
-""colorscheme gruvbox not needed see gui_color_mod
-""silent! source $HOME/.gui_color_mode "this also sets colorscheme
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"set background=light " or dark
-"colorscheme summerfruit256
 
 " Font section
-""set guifont=Liberation\ Mono\ for\ Powerline\ 10 "set guifont=Sauce\ Code\ Powerline\ 10
 set guifont=Inconsolata\ for\ Powerline\ 10
 "set linespace=12
 set guioptions=r
@@ -160,9 +152,10 @@ function! ToggleBetweenHeaderAndSourceFile()
 endfunction
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
 
-"Java compile and debug
+" compile and debug
 autocmd Filetype java set makeprg=javac\ %
-set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+" set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%# " this does not work: makes copen
+" not open correct file paths anymore!!!
 map <F9> :make<Return>:copen<Return>
 map <F10> :cprevious<Return>
 map <F11> :cnext<Return>
