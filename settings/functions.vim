@@ -10,3 +10,6 @@ function! s:Underline(chars)
 endfunction
 command! -nargs=? Underline call s:Underline(<q-args>)
  
+" Ctags siehe http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
